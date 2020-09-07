@@ -8,10 +8,10 @@
 //  Import CSS.
 import './editor.scss';
 import './style.scss';
-import MaterialIcon from "@material/react-material-icon";
-import TextField, {Input} from "@material/react-text-field";
-import React from "react";
+import MaterialIcon from '@material/react-material-icon';
+import TextField, {Input, HelperText} from '@material/react-text-field';
 
+const {Component} = wp.element;
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 
@@ -68,9 +68,7 @@ registerBlockType( 'cgb/block-cgb-material', {
 					<TextField
 						label='Additional thoughts...'
 						className='feedback-text-field'
-						trailingIcon={<MaterialIcon icon='edit'/>}
-						helperText={helperText}
-						outlined
+
 					>
 						<Input
 							value={this.state.feedback}
@@ -93,7 +91,7 @@ registerBlockType( 'cgb/block-cgb-material', {
 	 * @param {Object} props Props.
 	 * @returns {Mixed} JSX Frontend HTML.
 	 */
-	save: class extends Component {
+	save:  class extends Component {
 		constructor(props) {
 			super(...arguments);
 			this.props = props;
@@ -105,15 +103,13 @@ registerBlockType( 'cgb/block-cgb-material', {
 		// Creates a <p class='wp-block-cgb-block-cgb-material'></p>.
 		render() {
 			const { className, attributes: { blockTitle = '' } = {} } = this.props;
-
 			return (
+
 				<div className={className}>
 					<TextField
 						label='Additional thoughts...'
 						className='feedback-text-field'
-						trailingIcon={<MaterialIcon icon='edit'/>}
-						helperText={helperText}
-						outlined
+
 					>
 						<Input
 							value={this.state.feedback}
